@@ -1,0 +1,24 @@
+{
+  "name": "wa-bot-sticker-ai",
+  "version": "1.0.0",
+  "description": "Bot WhatsApp: pembuat stiker dari gambar/GIF + chatbot AI dengan personality yang bisa diatur",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "@whiskeysockets/baileys": "^7.0.0-rc14",
+    "dotenv": "^16.4.5",
+    "ffmpeg-static": "^5.3.0",
+    "node-webpmux": "^3.1.7",
+    "openai": "^4.104.0",
+    "pino": "^9.5.0",
+    "qrcode-terminal": "^0.12.0",
+    "sharp": "^0.35.3"
+  },
+  "allowScripts": {
+    "ffmpeg-static@5.3.0": true
+  }
+}

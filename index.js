@@ -136,7 +136,7 @@ async function startBot() {
           const ownerInfo = await sock.onWhatsApp(ownerNumber);
           const ownerJid = ownerInfo?.[0]?.jid || jidNormalizedUser(`${ownerNumber}@s.whatsapp.net`);
           //console.log(`[TEST OWNER] Mencoba mengirim pesan startup ke owner: ${ownerJid}`);
-          const result = await sock.sendMessage(ownerJid, { text: 'Halo Rover, Aemeath disini.' });
+          //const result = await sock.sendMessage(ownerJid, { text: 'Halo Rover, Aemeath disini.' });
           //console.log('[TEST OWNER] Pesan startup berhasil dikirim ke log!');
           //console.log('Hasil sendMessage:', result);
         } catch (err) {

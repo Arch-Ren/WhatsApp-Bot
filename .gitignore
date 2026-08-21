@@ -4,3 +4,4 @@ auth_info/
 src/data/chats.json
 src/data/custom-personalities.json
 *.log
+.venv

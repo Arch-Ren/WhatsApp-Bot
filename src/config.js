@@ -11,4 +11,6 @@ module.exports = {
   ownerNumber: process.env.BOT_OWNER_NUMBER || '',
   defaultPersonality: process.env.DEFAULT_PERSONALITY || 'default',
   prefix: process.env.COMMAND_PREFIX || '.',
+  ytdlpCookiesFromBrowser: process.env.YTDLP_COOKIES_FROM_BROWSER || 'chrome',
+  ytdlpCookiesFile: process.env.YTDLP_COOKIES_FILE || './cookies.txt',
 };

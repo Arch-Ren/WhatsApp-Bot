@@ -12,6 +12,7 @@ const https = require('https');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
+const config = require('../config');
 
 const MAX_SIZE_MB = 16; // audio jauh lebih kecil dari video, batas WA audio message
 const SPOTIFY_REGEX = /open\.spotify\.com\/(intl-\w+\/)?(track|album)\/[A-Za-z0-9]+/i;
@@ -127,12 +128,20 @@ module.exports = {
         caption = `🎵 ${query}`;
       }
 
+      let cookieArgs = [];
+      if (config.ytdlpCookiesFile) {
+        cookieArgs = ['--cookies', config.ytdlpCookiesFile];
+      } else if (config.ytdlpCookiesFromBrowser) {
+        cookieArgs = ['--cookies-from-browser', config.ytdlpCookiesFromBrowser];
+      }
+
       await runYtDlp([
         '-x', '--audio-format', 'mp3',
         '--audio-quality', '0',
         '--embed-thumbnail', '--embed-metadata',
         '--max-filesize', `${MAX_SIZE_MB}M`,
         '--no-playlist',
+        ...cookieArgs,
         // Mitigasi umum buat error 403 dari YouTube saat ini — lihat
         // catatan sama di downloader.js.
         '--extractor-args', 'youtube:player_client=android,web',
